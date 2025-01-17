@@ -24,7 +24,7 @@
             echo "<input type='hidden' name='nomAlum' value='" . $alumno["nombre"] . "'>"; 
             echo "<div>
                 <p id='nombresAlum' style='background: none; color: white; border: none; font-weight: bolder;'>" . $alumno["nombre"] . "</p>
-                <p>" . $alumno["dni"] . "</p>
+                <p class='pDni'>" . $alumno["dni"] . "</p>
                 </div>"; 
             echo "</div>";
         };

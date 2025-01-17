@@ -37,7 +37,7 @@ body{
 .alumnos{
     width: 30%;
     height: 85vh;
-    margin: 0 .5rem .5rem 0 ;
+    margin: 0 0 .5rem .5rem;
     padding: 10px !important; 
 }
 .calificacion{
@@ -119,7 +119,7 @@ input[type="checkbox"]{
     display: flex;
     flex-direction: column;
 }
-.btnCalificar > div:nth-child(3) > p{
+.pDni{
     font-weight: lighter;
     color: #b2b2b2;
     font-size: .6rem;
