@@ -7,8 +7,19 @@
 
 body{
     min-height: 100vh;
-    background: linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(0,0,0,1) 100%);
     color: white;
+}
+#bodyInicio{
+    background-color: black !important;
+    background: linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(0,0,0,1) 100%);
+}
+#bodyCalificar{
+    background-color: black !important;
+}
+#headerCalificar{
+    background-color: black;
+    padding: 1rem 0;
+    font-size: .5rem;
 }
 .inicio{
     display: flex;
@@ -21,9 +32,14 @@ body{
     gap: 10px;
 }
 .alumnos{
-    height: 95vh;
-    margin: 1rem;
+    height: 85vh;
+    margin: 0 .5rem .5rem .5rem;
     padding: 10px !important; 
+}
+.calificacion{
+    margin: 0 .5rem .5rem .5rem;
+    height: 85vh;
+
 }
 .btnCalificar{
     padding: 10px 20px; 
@@ -49,8 +65,6 @@ body{
 }
 .sectionModificar{
     display: flex;
-    gap: 10px;
-    background-color: black;
 }
 .btn{
     padding: 10px 20px; 
@@ -118,4 +132,11 @@ input[type="checkbox"]{
 }
 .avatarIMG{
     max-width: 100%;
+}
+#buscador{
+    background-color: #1F1F1F;
+    border: none;
+    color: #B3B3B3;
+    padding: 10px;
+    border-radius: 8px;
 }

@@ -6,11 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body id="bodyCalificar">
+<header id="headerCalificar">
+    <h1>ZONA DE CALIFICACION DE ALUMNOS</h1>
+</header>
 <main class="sectionModificar">
     <section class="modal alumnos">
         <h2>Alumnos</h2>
-        <input type="text" id="buscador">
+        <input type="text" id="buscador" placeholder="Buscar alumno">
         <?php
         echo "<form class='calificar' action='index?action=calificar.php' method='post'>"; 
         foreach ($alumnos as $alumno) {
