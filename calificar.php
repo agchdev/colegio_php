@@ -15,7 +15,7 @@
         <h2>Alumnos</h2>
         <input type="text" id="buscador" placeholder="Buscar alumno">
         <?php
-        echo "<form class='calificar' action='index?action=calificar.php' method='post'>"; 
+        echo "<form class='calificar' action='index.php?action=calificar' method='post'>"; 
         foreach ($alumnos as $alumno) {
             echo "<div class='viñetaAlum btnCalificar'>";
             echo "<div class='avatar'><img class='avatarIMG' src='img/avatar.png' alt='alumno'></div>";
@@ -31,25 +31,43 @@
     </section>
     <section class="modal calificacion">
         <h2>Calificacion</h2>
-        <table>
+        
             <?php
-            echo "<form action='index?action=calificar.php' method='post'>";
-            foreach ($asignaturas as $asignatura) {
-                echo "<tr>";
-                echo "<td><input type='hidden' name='calificacion' value='" . $asignatura["id"] . "'></td>";
-                echo "<td>" . $calificacion["nombre"] . "</td>";
-                echo "</tr>";
+            if(isset($aluCalificaciones)){
+                echo "<form action='index?action=calificar.php' method='post'>";
+                    echo "<table class='tablaCalificar'>";
+                    echo "<tr>";
+                    echo "<th>Curso</th>";
+                    echo "<th>Modulo</th>";
+                    echo "<th>Asignatura</th>";
+                    echo "<th>Nota</th>";
+                    echo "</tr>";
+                    foreach ($aluCalificaciones as $alu) {
+                        echo "<tr>";
+                        echo "<td>" . $alu["curso"] . "</td>";
+                        echo "<td>" . $alu["modulo"] . "</td>";
+                        echo "<td>" . $alu["asignatura"] . "</td>";
+                        echo "<td> <input type='number' name='notaNueva' value='" . $alu["nota"] . " disabled'> </td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                echo "</form>";
+            }else{
+                echo "<h2>NO HAY UN ALUMNO SELECCIONADO</h2>";
             }
-            echo "</form>";
             ?>
         </table>
             
     </section>
     <script>
         const buscador = document.querySelector("#buscador");
+        const alums = document.querySelectorAll(".btnCalificar");
+        let alumnos = document.querySelectorAll("#nombresAlum");
+        const form = document.querySelector(".calificar");
+
         buscador.addEventListener("input", (e) => {
             let palabra = e.target.value;
-            let alumnos = document.querySelectorAll("#nombresAlum");
+            alumnos = document.querySelectorAll("#nombresAlum");
             alumnos.forEach(alumno => {
                 if (alumno.value.toLowerCase().includes(palabra.toLowerCase())) {
                     alumno.parentElement.parentElement.style.display = "flex";
@@ -58,6 +76,13 @@
                 }
             })
         })
+
+        alums.forEach(alum => {
+            alum.addEventListener("click", () => {
+                form.submit();
+            })
+        })
+
     </script>
 </main>
 </body>

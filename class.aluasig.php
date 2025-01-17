@@ -7,20 +7,38 @@ class aluasig{
     private $nota;
     private $idAlumno;
     private $idAsignatura;
-    public function __construct(int $nota=0, int $idAlumno=0, int $idAsignatura=0){
+    public function __construct(float $n=0.0, int $idal=0, int $idasi=0){
         $this->conn = new db();
-        $this->nota = $nota;
-        $this->idAlumno = $idAlumno;
-        $this->idAsignatura = $idAsignatura;
+        $this->nota = $n;
+        $this->idAlumno = $idal;
+        $this->idAsignatura = $idasi;
     }
-    public function obtenerDatos($idAlumno, $idAsignatura){
-        $consulta = "SELECT nota FROM aluasig WHERE ? = ? AND ? = ?";
+    public function obtenerDatos($idAlumno){
+        $asi = "";
+        $mod = "";
+        $cur = "";
+        $nota = 0; // Variable local para manejar el valor de nota
+        // Convertir $idAlumno a double
+        $idAlumno = doubleval($idAlumno);
+        $consulta = "SELECT nota, nombre, modulo, curso FROM alu_asig, asignaturas WHERE id_alum = $idAlumno AND id_asig = id";
         $sentencia = $this->conn->getConn()->prepare($consulta);
-        $sentencia->bind_param('iiii', $idAlumno, $idAlumno, $idAsignatura, $idAsignatura);
         $sentencia->execute();
-        $sentencia->bind_result($this->nota);
-        $sentencia->fetch();
-        return $this->nota;
+        $sentencia->bind_result($nota , $asi, $mod, $cur);
+        
+        $alumnoCalificaciones = array();
+        while ($sentencia->fetch()) {
+            if ($nota === null) { // Verificar si nota es null
+                $nota = 2;
+            }
+            $alumnoCalificaciones[] = array(
+                "nota" => $nota,
+                "asignatura" => $asi,
+                "modulo" => $mod,
+                "curso" => $cur
+            );
+        }
+        $sentencia->close(); // Cerrar la sentencia para liberar recursos
+        return $alumnoCalificaciones;
     }
 }
 
