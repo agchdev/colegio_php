@@ -30,7 +30,20 @@
         ?>
     </section>
     <section class="modal calificacion">
-
+        <h2>Calificacion</h2>
+        <table>
+            <?php
+            echo "<form action='index?action=calificar.php' method='post'>";
+            foreach ($asignaturas as $asignatura) {
+                echo "<tr>";
+                echo "<td><input type='hidden' name='calificacion' value='" . $asignatura["id"] . "'></td>";
+                echo "<td>" . $calificacion["nombre"] . "</td>";
+                echo "</tr>";
+            }
+            echo "</form>";
+            ?>
+        </table>
+            
     </section>
     <script>
         const buscador = document.querySelector("#buscador");

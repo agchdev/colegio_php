@@ -10,6 +10,9 @@ body{
     color: white;
 }
 #bodyInicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black !important;
     background: linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(0,0,0,1) 100%);
 }
