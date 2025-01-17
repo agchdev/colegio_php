@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'system-ui' !important;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(0,0,0,1) 100%);
+    color: white;
+}
+.modal{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #121212;
+    /* margin-top: 3rem; */
+}
+.btn{
+    padding: 10px 20px; 
+    border-radius: 2rem;
+    font-weight: bold;
+    border: none;
+    background-color: #1ED760;
+    color: white;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.btn:hover{
+    padding: 10px 20px;
+    border-radius: 2rem;
+    font-weight: bold;
+    border: none;
+    background-color: #3aff7f;
+    box-shadow: 0 0 10px rgba(56, 255, 126, .4);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.formInicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+h1{
+    margin: auto;
+    text-align: center;
+}
+
+/* editar el input checked */
+input[type="checkbox"]{
+    accent-color: #1ED760;
+}
