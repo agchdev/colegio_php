@@ -6,12 +6,37 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(0,0,0,1) 100%);
     color: white;
+}
+.inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calificar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.alumnos{
+    height: 95vh;
+    margin: 1rem;
+    padding: 10px !important; 
+}
+.btnCalificar{
+    padding: 10px 20px; 
+    border-radius: .3rem;
+    font-weight: bold;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #121212;
+    transition: all .3s ease;
+}
+.btnCalificar:hover{
+    background-color: #1F1F1F;
 }
 .modal{
     display: flex;
@@ -21,6 +46,11 @@ body{
     border-radius: 10px;
     background-color: #121212;
     /* margin-top: 3rem; */
+}
+.sectionModificar{
+    display: flex;
+    gap: 10px;
+    background-color: black;
 }
 .btn{
     padding: 10px 20px; 
@@ -52,6 +82,12 @@ body{
     gap: 1rem;
 }
 
+.formCalificar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 h1{
     margin: auto;
     text-align: center;
@@ -60,4 +96,26 @@ h1{
 /* editar el input checked */
 input[type="checkbox"]{
     accent-color: #1ED760;
+}
+.btnCalificar > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+}
+.btnCalificar > div:nth-child(3) > p{
+    font-weight: lighter;
+    color: #b2b2b2;
+    font-size: .6rem;
+}
+.viñetaAlum{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.avatar{
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+}
+.avatarIMG{
+    max-width: 100%;
 }
