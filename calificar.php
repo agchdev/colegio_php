@@ -20,8 +20,10 @@
             echo "<div class='viñetaAlum btnCalificar'>";
             echo "<div class='avatar'><img class='avatarIMG' src='img/avatar.png' alt='alumno'></div>";
             echo "<input type='hidden' name='alumno' value='" . $alumno["id"] . "'>"; 
+            echo "<input type='hidden' name='dniAlum' value='" . $alumno["dni"] . "'>"; 
+            echo "<input type='hidden' name='nomAlum' value='" . $alumno["nombre"] . "'>"; 
             echo "<div>
-                <input id='nombresAlum' style='background: none; color: white; border: none; font-weight: bolder;' type='submit' value='" . $alumno["nombre"] . "'>
+                <p id='nombresAlum' style='background: none; color: white; border: none; font-weight: bolder;'>" . $alumno["nombre"] . "</p>
                 <p>" . $alumno["dni"] . "</p>
                 </div>"; 
             echo "</div>";
@@ -31,32 +33,31 @@
     </section>
     <section class="modal calificacion">
         <h2>Calificacion</h2>
-        
-            <?php
-            if(isset($aluCalificaciones)){
-                echo "<form action='index?action=calificar.php' method='post'>";
-                    echo "<table class='tablaCalificar'>";
+        <?php
+        if(isset($aluCalificaciones)){
+            echo "<h2>" . $aluNom . " - " . $aluDni . "</h2>";
+            echo "<form action='index?action=calificar.php' method='post'>";
+                echo "<table class='tablaCalificar'>";
+                echo "<tr>";
+                echo "<th>Curso</th>";
+                echo "<th>Modulo</th>";
+                echo "<th>Asignatura</th>";
+                echo "<th>Nota</th>";
+                echo "</tr>";
+                foreach ($aluCalificaciones as $alu) {
                     echo "<tr>";
-                    echo "<th>Curso</th>";
-                    echo "<th>Modulo</th>";
-                    echo "<th>Asignatura</th>";
-                    echo "<th>Nota</th>";
+                    echo "<td>" . $alu["curso"] . "</td>";
+                    echo "<td>" . $alu["modulo"] . "</td>";
+                    echo "<td>" . $alu["asignatura"] . "</td>";
+                    echo "<td> <input type='number' name='notaNueva' value='" . $alu["nota"] . " disabled'> </td>";
                     echo "</tr>";
-                    foreach ($aluCalificaciones as $alu) {
-                        echo "<tr>";
-                        echo "<td>" . $alu["curso"] . "</td>";
-                        echo "<td>" . $alu["modulo"] . "</td>";
-                        echo "<td>" . $alu["asignatura"] . "</td>";
-                        echo "<td> <input type='number' name='notaNueva' value='" . $alu["nota"] . " disabled'> </td>";
-                        echo "</tr>";
-                    }
-                    echo "</table>";
-                echo "</form>";
-            }else{
-                echo "<h2>NO HAY UN ALUMNO SELECCIONADO</h2>";
-            }
-            ?>
-        </table>
+                }
+                echo "</table>";
+            echo "</form>";
+        }else{
+            echo "<h2>NO HAY UN ALUMNO SELECCIONADO</h2>";
+        }
+        ?>
             
     </section>
     <script>

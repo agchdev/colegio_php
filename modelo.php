@@ -7,12 +7,12 @@
         $alumno = new alumno();
         $alumnos = $alumno->obtenerAlumnos();
         if(isset($_POST["alumno"])) {
-            mostrarCalificacionesAlumnos($_POST["alumno"]);
+            mostrarCalificacionesAlumnos($_POST["alumno"], $_POST["nomAlum"], $_POST["dniAlum"]);
         }else{
             require_once('calificar.php');
         }
     }
-    function mostrarCalificacionesAlumnos($alumno){
+    function mostrarCalificacionesAlumnos($alumno, $aluNom = "", $aluDni = "") {
         require_once('class.alumno.php');
         require_once('class.asignatura.php');
         $asignatura = new asignatura();

@@ -35,8 +35,9 @@ body{
     gap: 10px;
 }
 .alumnos{
+    width: 30%;
     height: 85vh;
-    margin: 0 .5rem .5rem .5rem;
+    margin: 0 .5rem .5rem 0 ;
     padding: 10px !important; 
 }
 .calificacion{
@@ -145,8 +146,10 @@ input[type="checkbox"]{
 }
 .tablaCalificar{
     border-collapse: collapse;
+    width: 100%;
 }
 .tablaCalificar td{
+    text-align: center;
     padding: 10px;
 }
 .tablaCalificar tr{
