@@ -7,7 +7,6 @@
         $alumno = new alumno();
         $alumnos = $alumno->obtenerAlumnos();
         if(isset($_POST["alumno"])) {
-            echo "<h2>" . $_POST["nomAlum"] . " - " . $_POST["dniAlum"] . "</h2>";
             mostrarCalificacionesAlumnos($_POST["alumno"], $_POST["nomAlum"], $_POST["dniAlum"]);
         }else{
             require_once('calificar.php');

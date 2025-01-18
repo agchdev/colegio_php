@@ -17,7 +17,7 @@
         <?php
          
         foreach ($alumnos as $alumno) {
-            echo "<form class='calificar' action='index.php?action=calificar.php' method='post'>";
+            echo "<form class='calificar' action='index.php?action=calificar' method='post'>";
             echo "<div class='viñetaAlum btnCalificar'>";
             echo "<div class='avatar'><img class='avatarIMG' src='img/avatar.png' alt='alumno'></div>";
             echo "<input type='hidden' name='alumno' value='" . $alumno["id"] . "'>"; 
@@ -64,8 +64,9 @@
     <script>
         const buscador = document.querySelector("#buscador");
         const alums = document.querySelectorAll(".btnCalificar");
-        let alumnos = document.querySelectorAll("#nombresAlum");
         const form = document.querySelectorAll(".calificar");
+        const calificacion =document.querySelector(".calificacion");
+        let alumnos = document.querySelectorAll("#nombresAlum");
 
         buscador.addEventListener("input", (e) => {
             let palabra = e.target.value;
@@ -84,6 +85,12 @@
                 alum.submit();
             })
         })
+
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        let color = "rgb(" + r + "," + g + "," + b + ")";
+        calificacion.style.background = `linear-gradient(0deg, rgba(18,18,18,1) 65%, ${color} 100%)`;
 
     </script>
 </main>
