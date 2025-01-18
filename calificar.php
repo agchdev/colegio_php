@@ -60,13 +60,12 @@
                     echo "</tr>";
                 }
                 echo "</table>";
-                echo "<input type='submit' name='calificar' class='btn' value='GUARDAR'>";
+                echo "<input style='margin-top: 1rem;' type='submit' name='calificar' class='btn' value='GUARDAR'>";
             echo "</form>";
         }else{
             echo "<h2>NO HAY UN ALUMNO SELECCIONADO</h2>";
         }
         ?>
-            
     </section>
     <script>
         const buscador = document.querySelector("#buscador");
