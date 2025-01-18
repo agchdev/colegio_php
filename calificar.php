@@ -60,6 +60,7 @@
                     echo "</tr>";
                 }
                 echo "</table>";
+                echo "<input type='submit' name='calificar' class='btn' value='GUARDAR'>";
             echo "</form>";
         }else{
             echo "<h2>NO HAY UN ALUMNO SELECCIONADO</h2>";
