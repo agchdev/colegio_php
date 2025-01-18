@@ -36,8 +36,14 @@
         <h2>Calificacion</h2>
         <?php
         if(isset($aluCalificaciones)){
-            echo "<h2>" . $aluNom . " - " . $aluDni . "</h2>";
-            echo "<form action='index?action=calificar' method='post'>";
+            echo "<div class='perfilAlum'>
+                    <div><img class='avatarIMG' src='img/avatar.png' alt='alumno'></div>
+                    <div>
+                        <h2>" . $aluNom . "</h2>
+                        <h3>" . $aluDni . "</h3>
+                    </div>
+                </div>";
+            echo "<form id='formCalificar' action='index?action=calificador' method='post'>";
                 echo "<table class='tablaCalificar'>";
                 echo "<tr>";
                 echo "<th>Curso</th>";
@@ -50,7 +56,7 @@
                     echo "<td>" . $alu["curso"] . "</td>";
                     echo "<td>" . $alu["modulo"] . "</td>";
                     echo "<td>" . $alu["asignatura"] . "</td>";
-                    echo "<td> <input class='nota' type='number' name='notaNueva' value='" . $alu["nota"] . "' disabled> </td>";
+                    echo "<td> <input class='nota' type='number' name='notaNueva' value='" . $alu["nota"] . "'> </td>";
                     echo "</tr>";
                 }
                 echo "</table>";
@@ -66,6 +72,8 @@
         const alums = document.querySelectorAll(".btnCalificar");
         const form = document.querySelectorAll(".calificar");
         const calificacion =document.querySelector(".calificacion");
+        const notas =document.querySelectorAll(".nota");
+        const formCalificar = document.querySelector("#formCalificar");
         let alumnos = document.querySelectorAll("#nombresAlum");
 
         buscador.addEventListener("input", (e) => {
@@ -83,6 +91,22 @@
         form.forEach(alum => {
             alum.addEventListener("click", () => {
                 alum.submit();
+            })
+        })
+
+        console.log(notas);
+
+        notas.forEach(nota => {
+            nota.addEventListener("click", () => {
+                console.log(nota)
+                console.log("click");
+                nota.disabled = false;
+            })
+        })
+        notas.forEach(nota => {
+            nota.addEventListener("change", () => {
+                console.log("cambio")
+                // formCalificar.submit();
             })
         })
 
