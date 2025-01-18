@@ -54,7 +54,7 @@ body{
     border: none;
     color: white;
     cursor: pointer;
-    background-color: #121212;
+    background-color: rgba(18, 18, 18);
     transition: all .3s ease;
 }
 .btnCalificar:hover{
@@ -159,5 +159,17 @@ input[type="checkbox"]{
 }
 .tablaCalificar tr:hover{
     border-radius: 10px;
-    background-color: #1F1F1F;
+    background-color: rgba(90, 90, 90, 0.4);
+}
+.nota{
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: none;
+}
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

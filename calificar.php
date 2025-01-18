@@ -50,7 +50,7 @@
                     echo "<td>" . $alu["curso"] . "</td>";
                     echo "<td>" . $alu["modulo"] . "</td>";
                     echo "<td>" . $alu["asignatura"] . "</td>";
-                    echo "<td> <input type='number' name='notaNueva' value='" . $alu["nota"] . " disabled'> </td>";
+                    echo "<td> <input class='nota' type='number' name='notaNueva' value='" . $alu["nota"] . "' disabled> </td>";
                     echo "</tr>";
                 }
                 echo "</table>";
