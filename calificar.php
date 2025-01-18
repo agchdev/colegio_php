@@ -15,8 +15,9 @@
         <h2>Alumnos</h2>
         <input type="text" id="buscador" placeholder="Buscar alumno">
         <?php
-        echo "<form class='calificar' action='index.php?action=calificar' method='post'>"; 
+         
         foreach ($alumnos as $alumno) {
+            echo "<form class='calificar' action='index.php?action=calificar.php' method='post'>";
             echo "<div class='viñetaAlum btnCalificar'>";
             echo "<div class='avatar'><img class='avatarIMG' src='img/avatar.png' alt='alumno'></div>";
             echo "<input type='hidden' name='alumno' value='" . $alumno["id"] . "'>"; 
@@ -27,8 +28,8 @@
                 <p class='pDni'>" . $alumno["dni"] . "</p>
                 </div>"; 
             echo "</div>";
+            echo "</form>"; 
         };
-        echo "</form>"; 
         ?>
     </section>
     <section class="modal calificacion">
@@ -36,7 +37,7 @@
         <?php
         if(isset($aluCalificaciones)){
             echo "<h2>" . $aluNom . " - " . $aluDni . "</h2>";
-            echo "<form action='index?action=calificar.php' method='post'>";
+            echo "<form action='index?action=calificar' method='post'>";
                 echo "<table class='tablaCalificar'>";
                 echo "<tr>";
                 echo "<th>Curso</th>";
@@ -64,7 +65,7 @@
         const buscador = document.querySelector("#buscador");
         const alums = document.querySelectorAll(".btnCalificar");
         let alumnos = document.querySelectorAll("#nombresAlum");
-        const form = document.querySelector(".calificar");
+        const form = document.querySelectorAll(".calificar");
 
         buscador.addEventListener("input", (e) => {
             let palabra = e.target.value;
@@ -78,9 +79,9 @@
             })
         })
 
-        alums.forEach(alum => {
+        form.forEach(alum => {
             alum.addEventListener("click", () => {
-                form.submit();
+                alum.submit();
             })
         })
 
