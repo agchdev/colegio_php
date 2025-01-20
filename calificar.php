@@ -51,13 +51,19 @@
                 echo "<th>Asignatura</th>";
                 echo "<th>Nota</th>";
                 echo "</tr>";
+                $contador = 0;
+                echo "<input type='hidden' name='alumno' value=".$aluDni.">";
                 foreach ($aluCalificaciones as $alu) {
                     echo "<tr>";
                     echo "<td>" . $alu["curso"] . "</td>";
                     echo "<td>" . $alu["modulo"] . "</td>";
                     echo "<td>" . $alu["asignatura"] . "</td>";
-                    echo "<td> <input class='nota' type='number' name='notaNueva' value='" . $alu["nota"] . "'> </td>";
+                    echo "<td> <input class='nota' type='number' name='notaNueva".$contador."' value='" . $alu["nota"] . "'> </td>";
                     echo "</tr>";
+                    echo "<input type='hidden' name='curso".$contador."' value=".$alu["curso"].">";
+                    echo "<input type='hidden' name='modulo".$contador."' value=".$alu["modulo"].">";
+                    echo "<input type='hidden' name='asignatura".$contador."' value=".$alu["asignatura"].">";
+                    $contador++;
                 }
                 echo "</table>";
                 echo "<input style='margin-top: 1rem;' type='submit' name='calificar' class='btn' value='GUARDAR'>";

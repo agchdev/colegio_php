@@ -34,6 +34,9 @@
     function calificar() {
         mostrarCalificar();
     }
+    function guardar(){
+        
+    }
     if(isset($_REQUEST["action"])) {
         $action = $_REQUEST["action"];
         $action();
