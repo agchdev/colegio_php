@@ -54,8 +54,9 @@ class aluasig{
                         AND curso = ?;";
         $sentencia = $this->conn->getConn()->prepare($consultaIds);
         $sentencia->bind_param("sssi", $alumnoDni, $asignatura, $modulo, $curso);
-        $sentencia->execute();
         $sentencia->bind_result($id_al, $id_as);
+        $sentencia->execute();
+        $sentencia->fetch();
         $sentencia->close();
 
         $this->updatear($id_al, $id_as, $nota);
