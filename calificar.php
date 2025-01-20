@@ -43,7 +43,7 @@
                         <h3>" . $aluDni . "</h3>
                     </div>
                 </div>";
-            echo "<form id='formCalificar' action='index?action=calificador' method='post'>";
+            echo "<form id='formCalificar' action='index.php?action=calificador' method='post'>";
                 echo "<table class='tablaCalificar'>";
                 echo "<tr>";
                 echo "<th>Curso</th>";

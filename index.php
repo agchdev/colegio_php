@@ -34,8 +34,29 @@
     function calificar() {
         mostrarCalificar();
     }
-    function guardar(){
-        
+    function calificador(){
+        if(isset($_POST["calificar"])){
+            $cont = 0;
+            $contador = 0;
+            $alumnoDni = $_POST["alumno"];
+            while(isset($_POST["curso".$cont.""])){
+                $curso = $_POST["curso".$cont.""];
+                $modulo = $_POST["modulo".$cont.""];
+                $asignatura = $_POST["asignatura".$cont.""];
+                $nota = $_POST["notaNueva".$cont.""];
+                if($nota <= 10 || $nota >= 0){
+                    require_once('class.aluasig.php');
+                    $aluasig = new aluasig();
+                    if($aluasig->nuevaNota($alumnoDni, $curso, $modulo, $asignatura, $nota)){
+                        $contador++;
+                    }
+                }
+            }
+            if($contador == $cont){
+                echo "<script>alert('Calificaciones actualizadas correctamente.');</script>";
+                mostrarCalificacionesAlumnos($alumnoDni);
+            }
+        }
     }
     if(isset($_REQUEST["action"])) {
         $action = $_REQUEST["action"];
