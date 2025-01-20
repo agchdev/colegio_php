@@ -44,18 +44,22 @@
                 $modulo = $_POST["modulo".$cont.""];
                 $asignatura = $_POST["asignatura".$cont.""];
                 $nota = $_POST["notaNueva".$cont.""];
-                if($nota <= 10 || $nota >= 0){
+                if($nota <= 10  && $nota >= 0){
                     require_once('class.aluasig.php');
                     $aluasig = new aluasig();
-                    if($aluasig->nuevaNota($alumnoDni, $curso, $modulo, $asignatura, $nota)){
-                        $contador++;
-                    }
+                    $aluasig->nuevaNota($alumnoDni, $curso, $modulo, $asignatura, $nota);
                 }
+                $cont++;
             }
-            if($contador == $cont){
-                echo "<script>alert('Calificaciones actualizadas correctamente.');</script>";
-                mostrarCalificacionesAlumnos($alumnoDni);
-            }
+            echo "<script>alert('Calificaciones actualizadas correctamente.');</script>";
+            require_once('class.alumno.php');
+            require_once('class.asignatura.php');
+            $asignatura = new asignatura();
+            $asignaturas = $asignatura->obtenerAsignaturas();
+            $alumno = new alumno();
+            $alumnos = $alumno->obtenerAlumnos();
+            require_once('calificar.php');
+
         }
     }
     if(isset($_REQUEST["action"])) {
